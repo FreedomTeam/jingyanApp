@@ -19,8 +19,8 @@ ion-view(view-title='订单')
         img(ng-src='{{chat.face}}' style="max-height:72px;margin:0px 6px")
         .intro(style="display:inline-block")
           h2(style="color:#3191fd")  
-            span(ng-if="order.orderStatusId!=='F'" style="color:#ff4343") [未完成]
-            {{order.address}}
+            span(ng-if="order.orderStatusId!=='F'" style="color:#ff4343")
+              | {{order.address}} {{order.parterNo}}
           p(style="height:30px") 
             span {{_.round(order.count)}}件
             span {{_.round(order.volume, 2)}}方

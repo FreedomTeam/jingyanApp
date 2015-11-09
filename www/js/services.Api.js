@@ -39,17 +39,32 @@ angular.module('services.Api', [])
       console.debug(options)
 
       bindStruct.refresh = function(){
+        if (!bindStruct.scope[bindStruct.scopeField]) bindStruct.scope[bindStruct.scopeField] = [];
         return bindStruct.api.getList(options).then(function(data){
           return Restangular.allUrl(data.meta[bindStruct.moreDataMeta]).getList().then(function(innerData){
             console.debug(_.pluck(innerData, 'title'));
             bindStruct.moreData = innerData;
-            bindStruct.scope[bindStruct.scopeField] = _.sortByOrder(data, [options.order?options.order:'id'], bindStruct.dataOrder);
+            var tmpData = _.sortByOrder(data, [options.order?options.order:'id'], bindStruct.dataOrder);
+            for(var index = 0; index < tmpData.length; index++){
+              if (bindStruct.scope[bindStruct.scopeField][index]){
+                _.merge(bindStruct.scope[bindStruct.scopeField][index], tmpData[index])
+              } else {
+                bindStruct.scope[bindStruct.scopeField].push(tmpData[index]);
+              }
+            }
             bindStruct.scope[bindStruct.scopeField].meta = data.meta;
             bindStruct.scope[bindStruct.scopeField].meta[bindStruct.moreDataMeta] = innerData.meta[bindStruct.moreDataMeta];
           }, function(err){
             if (err.status === 404){
               bindStruct.moreData = [];
-              bindStruct.scope[bindStruct.scopeField] = _.sortByOrder(data, [options.order?options.order:'id'], bindStruct.dataOrder);
+              var tmpData = _.sortByOrder(data, [options.order?options.order:'id'], bindStruct.dataOrder);
+              for(var index = 0; index < tmpData.length; index++){
+                if (bindStruct.scope[bindStruct.scopeField][index]){
+                  _.merge(bindStruct.scope[bindStruct.scopeField][index], tmpData[index])
+                } else {
+                  bindStruct.scope[bindStruct.scopeField].push(tmpData[index]);
+                }
+              }
               bindStruct.scope[bindStruct.scopeField].meta = data.meta;
             }
             console.debug(err);
