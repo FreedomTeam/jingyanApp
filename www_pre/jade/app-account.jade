@@ -1,0 +1,13 @@
+ion-view(view-title='Account')
+  ion-content
+    ion-list.list-inset.padding-top
+      ion-item.item-avatar.item-icon-right(ui-sref="app.me")
+        img(ng-src="{{user.avatar}}")
+        h2 {{user.name}}
+        p ID: {{user.id}}
+        i.icon.ion-chevron-right.icon-accessory
+    ion-list.list-inset
+      ion-item.item-icon-left.item-icon-right(ui-sref="app.setting")
+        | Setting
+        i.icon.ion-gear-a
+        i.icon.ion-chevron-right.icon-accessory

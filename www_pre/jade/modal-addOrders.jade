@@ -1,0 +1,29 @@
+ion-modal-view
+  ion-header-bar
+    button.button.button-clear(ng-click='mustChoise?cancelModal():closeModal()') 取消
+    .title 下订单
+    button.button.button-clear(type="submit" ng-disabled="newsForm.$invalid") 新增
+  ion-content
+    form(role='form' name="newsForm" ng-submit="ok(newsForm)" novalidate)
+      ion-list
+        label.item.item-input
+          .input-label 客户名称：
+          input(name='title', autofocus='' ng-model='formData.name', required type='text')
+        label.item.item-input
+          .input-label 驳货地址：
+          input(name='title', ng-model='formData.addr', required type='text')
+        label.item.item-input
+          .input-label 同行编号：
+          input(name='title', ng-model='formData.num', required type='text')
+        label.item.item-input
+          .input-label 进仓编号：
+          input(name='title', ng-model='formData.num1', required type='text')
+        label.item.item-input
+          .input-label 件数：
+          input(name='title', ng-model='formData.count', required type='text')
+        label.item.item-input
+          .input-label 立方：
+          input(name='title', ng-model='formData.title', required type='text')
+        label.item.item-input
+          .input-label 吨位：
+          input(name='title', ng-model='formData.ton', required type='text')

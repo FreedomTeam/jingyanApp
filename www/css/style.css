@@ -1,0 +1,73 @@
+/* Empty. Add your own CSS if you like */
+
+/*header*/
+.bar-stable.bar-header,.bar-header{
+	background:#3191fd;
+}
+
+.bar.bar-stable .title,.bar-header .title{
+	color:#fff;
+	font-family: Microsoft YaHei,SimHei;
+	font-weight: bold;
+}
+
+.bar-stable .button.button-clear,.button.button-clear{
+	font-family: Microsoft YaHei,SimHei;
+	color: #fff;
+}
+
+/*classify tag*/
+.classify{
+	color:#4a4a4a;
+	width:33.3333%;
+	height: 30px;
+	line-height: 30px;
+	display: inline-block;
+	text-align: center;
+	background-color: #e5e5e5;
+	margin: auto;
+	font-family: Microsoft YaHei,SimHei;
+	font-weight: bold;
+}
+
+.classify.active{
+	color: #3191fd;
+	background-color: #fff;
+}
+
+/*order-detail*/
+.detail{
+	color:#4a4a4a;
+	font-family: Microsoft YaHei,SimHei;
+	background-color: #e5e5e5;
+	min-height: 500px;
+	padding:13px;
+	margin-top: 10px
+}
+
+.detail span{
+	color: #3191fd;
+}
+
+/*input*/
+.item.item-input{
+	border-style:none;
+	padding:5px 0px 0px 8px;
+	
+}
+.input-label{
+	font-family: Microsoft YaHei,SimHei;
+	width:25%;
+	text-align: right;
+	padding-right: 0px;
+}
+.item.item-input input{
+	width:70%;
+	height: 45px;
+	margin-right: 10px;
+	padding:5px 15px;
+	color: #3191fd;
+	font-size: 18px;
+	background-color: #e5e5e5;
+	border-radius:9px;
+}
