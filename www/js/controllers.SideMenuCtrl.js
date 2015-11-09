@@ -1,5 +1,11 @@
-angular.module('starter.controllers', [])
+angular.module('controllers.SideMenuCtrl', [])
 
-.controller('SideMenuCtrl', function($scope, $ionicModal, $timeout) {
+.controller('SideMenuCtrl', function($scope, User) {
+  var getUserData = function(){
+    $scope.user = User.getUser();
+  };
 
+  $scope.$on("$ionicView.afterEnter", function() {
+    getUserData();
+  });
 })

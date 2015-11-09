@@ -1,19 +1,19 @@
 ion-modal-view
   ion-header-bar
-    .title Login
+    .title 登入
     .buttons
       button.button.button-small.button-clear.button-positive(ng-click='signUp()') Sign Up
   ion-content
     form(role='form' name="userForm" ng-submit="ok(userForm)" novalidate)
       div.list.list-inset
         .form-group.item.item-input(ng-class="{'has-error':userForm.name.$invalid && !userForm.name.$pristine}")
-          input.form-control(placeholder='Name', name='name', autofocus='' ng-model='formData.name', required type='text' ng-pattern='/^\\w{3,12}$/' ng-change='clearLoginError()')
-          span.energized(ng-show="userForm.name.$invalid && !userForm.name.$pristine") 3-12 letters
+          input.form-control(placeholder='账户', name='name', autofocus='' ng-model='formData.name', required type='text' ng-pattern='/^\\w{3,12}$/' ng-change='clearLoginError()')
+          span.energized(ng-show="userForm.name.$invalid && !userForm.name.$pristine") 3-12位字符
         .form-group.item.item-input(ng-class="{'has-error':userForm.password.$invalid && !userForm.password.$pristine}")
-          input.form-control(placeholder='Password', name='password', type='password', value='' ng-model='formData.password' required ng-minlength="6" ng-maxlength="12" ng-change='clearLoginError()')
-          span.energized(ng-show="userForm.password.$error.minlength && !userForm.password.$pristine") Less than 6
-          span.energized(ng-show="userForm.password.$error.maxlength && !userForm.password.$pristine") More than 12
+          input.form-control(placeholder='密码', name='password', type='password', value='' ng-model='formData.password' required ng-minlength="6" ng-maxlength="12" ng-change='clearLoginError()')
+          span.energized(ng-show="userForm.password.$error.minlength && !userForm.password.$pristine") 少于6位
+          span.energized(ng-show="userForm.password.$error.maxlength && !userForm.password.$pristine") 多于12位
         span.energized(ng-if="loginErrMsg") {{loginErrMsg}}
       div.padding-left.padding-right
         label
-          button.button.button-block.button-calm(type="submit" ng-disabled="userForm.$invalid") Login
+          button.button.button-block.button-calm(type="submit" ng-disabled="userForm.$invalid") 登入

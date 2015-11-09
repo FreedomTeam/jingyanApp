@@ -13,7 +13,8 @@ angular.module('starter', [
   'services.User',
   'LocalStorageModule',
   'oc.lazyLoad',
-  'starter.services'
+  'starter.services',
+  'controllers.SideMenuCtrl'
   ])
 
 .run(function($ionicPlatform) {
@@ -33,7 +34,8 @@ angular.module('starter', [
 })
 
 
-.constant('baseUrl', 'http://app.jingyan56.com')
+// .constant('baseUrl', 'http://app.jingyan56.com')
+.constant('baseUrl', 'http://192.168.2.99:8201')
 .config(['$compileProvider', 'RestangularProvider', 'baseUrl', function($compileProvider, RestangularProvider,baseUrl) {
 
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content):|data:image\//);
@@ -88,14 +90,6 @@ angular.module('starter', [
     resolve: {
       login: function(User){
         return User.loginPromise();
-      },
-      loadMyFiles:function($ocLazyLoad) {
-        return $ocLazyLoad.load({
-          name:'starter.controllers',
-          files:[
-          'js/controllers.SideMenuCtrl.js',
-          ]
-        })
       }
     }
   })

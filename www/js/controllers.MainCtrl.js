@@ -3,6 +3,7 @@ angular.module('starter', [])
 .controller('OrdersCtrl', function($scope, User, Restangular, Acl, Api,Modal,Chats) {
 //替代
   $scope.chats=Chats.all();
+  $scope._ = _;
 
   Restangular.addFullRequestInterceptor(User.tokenInterceptor);
   $scope.isAllowed = Acl.isAllowed;

@@ -1,4 +1,4 @@
-ion-view(view-title='管理员')
+ion-view(view-title='订单')
   ion-nav-buttons(side="right")
     button.button.button-clear(ng-click='addOrders()') 
       img(src="img/button-add1.png" style="max-width:30px;max-height:30px;width: 100%;height: 100%;")
@@ -14,15 +14,20 @@ ion-view(view-title='管理员')
         li.classify(ng-click="") 全部订单
         li.classify.active(ng-click="") 未完成订单
         li.classify(ng-click="") 已完成订单
-      ion-item.item-remove-animate.item-icon-right(ng-repeat='chat in chats', type='item-text-wrap', href='#/app/orders/{{chat.id}}',style="min-height:72px;")
+      ion-item.item-remove-animate.item-icon-right(ng-repeat='order in orders', type='item-text-wrap', href='#/app/orders/{{chat.id}}',style="min-height:72px;")
         img(ng-src='img/unfinish.png' style="max-width:8px;max-height:72px;width: 100%;height: 100%;" )
         img(ng-src='{{chat.face}}' style="max-height:72px;margin:0px 6px")
         .intro(style="display:inline-block")
           h2(style="color:#3191fd")  
-            span(style="color:#ff4343") [未完成]
-            {{chat.name}}
-          p(style="height:30px") {{chat.lastText}}
-          span(style="color:#a6a6a6;font-size:80%") 2015-01-01 16:57
+            span(ng-if="order.orderStatusId!=='F'" style="color:#ff4343") [未完成]
+            {{order.address}}
+          p(style="height:30px") 
+            span {{_.round(order.count)}}件
+            span {{_.round(order.volume, 2)}}方
+            span {{_.round(order.weight,2)}}kg
+            br
+            span {{order.warehouseReceptNo}} {{order.parterNo}} 
+          span(style="color:#a6a6a6;font-size:80%") {{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}
         i.icon.ion-chevron-right.icon-accessory
         ion-option-button.button-assertive(ng-click='remove(chat)')
           | Delete
