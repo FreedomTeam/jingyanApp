@@ -41,6 +41,7 @@ angular.module('services.Api', [])
       bindStruct.refresh = function(){
         if (!bindStruct.scope[bindStruct.scopeField]) bindStruct.scope[bindStruct.scopeField] = [];
         return bindStruct.api.getList(options).then(function(data){
+          console.debug(data.meta[bindStruct.moreDataMeta])
           return Restangular.allUrl(data.meta[bindStruct.moreDataMeta]).getList().then(function(innerData){
             console.debug(_.pluck(innerData, 'title'));
             bindStruct.moreData = innerData;
@@ -52,6 +53,10 @@ angular.module('services.Api', [])
                 bindStruct.scope[bindStruct.scopeField].push(tmpData[index]);
               }
             }
+            console.debug('data1', data)
+            console.debug('list1', bindStruct.scope[bindStruct.scopeField]);
+            bindStruct.scope[bindStruct.scopeField].splice(tmpData.length);
+            console.debug(bindStruct.scope[bindStruct.scopeField]);
             bindStruct.scope[bindStruct.scopeField].meta = data.meta;
             bindStruct.scope[bindStruct.scopeField].meta[bindStruct.moreDataMeta] = innerData.meta[bindStruct.moreDataMeta];
           }, function(err){
@@ -65,6 +70,9 @@ angular.module('services.Api', [])
                   bindStruct.scope[bindStruct.scopeField].push(tmpData[index]);
                 }
               }
+              console.debug('data2', data)
+              console.debug('list2', bindStruct.scope[bindStruct.scopeField]);
+              bindStruct.scope[bindStruct.scopeField].splice(tmpData.length)
               bindStruct.scope[bindStruct.scopeField].meta = data.meta;
             }
             console.debug(err);
@@ -82,10 +90,14 @@ angular.module('services.Api', [])
           while(tmpDatum = bindStruct.moreData.pop()){
             bindStruct.scope[bindStruct.scopeField].push(tmpDatum);
           }
+          console.debug('more data1', bindStruct.moreData)
+          console.debug('more list1', bindStruct.scope[bindStruct.scopeField]);
           bindStruct.moreData = data;
           bindStruct.scope[bindStruct.scopeField].meta[bindStruct.moreDataMeta] = data.meta[bindStruct.moreDataMeta];
         }, function(err){
           if (err.status === 404){
+            console.debug('more data2', bindStruct.moreData)
+            console.debug('more list2', bindStruct.scope[bindStruct.scopeField]);
             while(tmpDatum = bindStruct.moreData.pop()){
               bindStruct.scope[bindStruct.scopeField].push(tmpDatum);
             }

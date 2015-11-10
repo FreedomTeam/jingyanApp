@@ -1,0 +1,16 @@
+ion-list
+  ion-item.item-remove-animate.item-icon-right(ng-repeat='order in fOrders', type='item-text-wrap', href='#/app/orders/{{chat.id}}',style="min-height:72px;")
+    img(ng-src='img/unfinish.png' style="max-width:8px;max-height:72px;width: 100%;height: 100%;" )
+    img(ng-src='{{chat.face}}' style="max-height:72px;margin:0px 6px")
+    .intro(style="display:inline-block")
+      h2(style="color:#3191fd")  
+        span(ng-if="order.orderStatusId!=='F'" style="color:#ff4343")
+          | {{order.address}} {{order.parterNo}}
+      p(style="height:30px") 
+        span {{_.round(order.count)}}件
+        span {{_.round(order.volume, 2)}}方
+        span {{_.round(order.weight,2)}}kg
+        br
+        span {{order.warehouseReceptNo}} {{order.parterNo}} 
+      span(style="color:#a6a6a6;font-size:80%") {{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}
+    i.icon.ion-chevron-right.icon-accessory
