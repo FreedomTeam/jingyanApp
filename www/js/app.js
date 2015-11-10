@@ -181,7 +181,7 @@ angular.module('starter', [
       }
     })
     .state('app.orderDetail', {
-      url: '/orders/:chatId',
+      url: '/orders/:orderId',
       views: {
         'menuContent': {
           templateUrl: 'templates/order-detail.html',

@@ -1,5 +1,5 @@
 ion-list
-  ion-item.item-remove-animate.item-icon-right(ng-repeat='order in dOrders', type='item-text-wrap', href='#/app/orders/{{chat.id}}',style="min-height:72px;")
+  ion-item.item-remove-animate.item-icon-right(ng-repeat='order in dOrders', type='item-text-wrap', href='#/app/orders/{{order.id}}',style="min-height:72px;")
     img(ng-src='img/unfinish.png' style="max-width:8px;max-height:72px;width: 100%;height: 100%;" )
     img(ng-src='{{chat.face}}' style="max-height:72px;margin:0px 6px")
     .intro(style="display:inline-block")

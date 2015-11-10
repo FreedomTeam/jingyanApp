@@ -9,20 +9,19 @@ ion-view(view-title='订单详情')
   ion-content
     div(style="padding-left:10px")
       h4(style="color:#3191fd;")
-        span(style="color:#ff4343") [未完成]
-        标题标题
-        span(style="float:right;color:#a6a6a6;font-size:80%;line-height:21px;") 2015-01-01 16:57
+        span(style="color:#ff4343") [未完成] {{order.id}}
+        span(style="float:right;color:#a6a6a6;font-size:80%;line-height:21px;") {{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}
       img(ng-src='img/add-photo.png', style='width: 64px; height: 64px')
     div.detail
       p 驳货地址：
-        span 东方国际江心沙路3388号
+        span {{order.address}}
       p 同行编号：
-        span WM150913YD-HAM
+        span {{order.parterNo}}
       p 进仓编号：
-        span 13843232372
+        span {{order.warehouseReceptNo}}
       p 件数：
-        span 5
+        span {{_.round(order.count)}}
       p 立方：
-        span 3
+        span {{_.round(order.volume, 2)}}
       p 吨位：
-        span 2878
+        span {{_.round(order.weight, 2)}}
