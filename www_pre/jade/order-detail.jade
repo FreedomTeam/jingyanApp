@@ -5,13 +5,14 @@
   The Friends service returns an array of friend data
 ion-view(view-title='订单详情')
   ion-nav-buttons(side="right")
-    button.button.button-clear(ng-click="" style="font-family: Microsoft YaHei;font-weight: 500;") 发送
-  ion-content
-    div(style="padding-left:10px")
-      h4(style="color:#3191fd;")
-        span(style="color:#ff4343") [未完成] {{order.id}}
-        span(style="float:right;color:#a6a6a6;font-size:80%;line-height:21px;") {{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}
-      img(ng-src='img/add-photo.png', style='width: 64px; height: 64px')
+    button.button.button-clear.send(ng-click="") 发送
+  ion-content.orderDetail
+    div.title
+      h4
+        span.unfinish [未完成] 
+        {{order.id}}
+        span.date {{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}
+      img.detailImg(ng-src='img/add-photo.png')
     div.detail
       p 驳货地址：
         span {{order.address}}

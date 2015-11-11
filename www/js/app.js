@@ -34,8 +34,8 @@ angular.module('starter', [
 })
 
 
-// .constant('baseUrl', 'http://app.jingyan56.com')
-.constant('baseUrl', 'http://192.168.2.99:8201')
+.constant('baseUrl', 'http://app.jingyan56.com')
+// .constant('baseUrl', 'http://192.168.2.99:8201')
 .config(['$compileProvider', 'RestangularProvider', 'baseUrl', function($compileProvider, RestangularProvider,baseUrl) {
 
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|blob|content):|data:image\//);

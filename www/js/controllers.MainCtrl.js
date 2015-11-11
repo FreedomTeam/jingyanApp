@@ -46,8 +46,24 @@ angular.module('starter', [])
   $scope.pagesMap = _.indexBy($scope.pages, 'id');
   $scope.curPageId = 'All';
   $scope.changePage = function(page){
+    $scope.formData.warehouseLike = '';
     $scope.curPageId = page.id;
     if (!$scope[$scope.pagesMap[$scope.curPageId].field]){
+      $scope.doRefresh();
+    }
+  }
+  $scope.formData = {
+    warehouseLike: ''
+  }
+  $scope.search = function(e){
+    var keycode = window.event?e.keyCode:e.which;
+    if(keycode!==13) return;
+    
+    if ($scope.formData.warehouseLike===''){
+      $scope.changePage($scope.pagesMap['All']);
+    } else {
+      $scope.curPageId = 'Search';
+      bindStructs['Search'] = Api.bindList(Orders, $scope, 'searchOrders', 'news', {context: 'transported', warehouseLike: $scope.formData.warehouseLike});
       $scope.doRefresh();
     }
   }

@@ -1,0 +1,18 @@
+ion-list
+  ion-item.item-remove-animate.item-icon-right.orderList.orderAll(ng-repeat='order in searchOrders', type='item-text-wrap', href='#/app/orders/{{order.id}}')
+    img.status(ng-src='img/unfinish.png')
+    img.orderImg(ng-src='img/orderImg.jpg')
+    .intro
+      h3  
+        span.unfinish(ng-if="order.orderStatusId!=='F'") 
+          | [未完成]
+        {{order.address}} {{order.parterNo}}
+      p
+        span 
+          | {{_.round(order.count)}}件
+          | {{_.round(order.volume, 2)}}方
+          | {{_.round(order.weight,2)}}kg
+        br
+        span {{order.warehouseReceptNo}} {{order.parterNo}} 
+      span.date {{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}
+    i.icon.ion-chevron-right.icon-accessory

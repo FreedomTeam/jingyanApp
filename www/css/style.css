@@ -15,7 +15,80 @@
 	font-family: Microsoft YaHei,SimHei;
 	color: #fff;
 }
+.button.button-clear.send{
+	font-weight: 550;
+}
+.add img{
+	max-width:30px;
+	max-height:30px;
+	width: 100%;
+	height: 100%;
+}
 
+/*Order*/
+.orderList{
+	min-height:72px;
+}
+.orderList a.item-content{
+  padding: 12px 49px 12px 8px;
+}
+img.status{
+	max-width:8px;
+	max-height:72px;
+	width: 100%;
+	height: 100%;
+}
+img.orderImg{
+  max-height:72px;
+  margin:0px 6px
+}
+.intro{
+	display:inline-block;
+	width:70%
+}
+.intro h3{
+	color:#3191fd
+}
+span.unfinish{
+	color:#ff4343
+}
+.intro p{
+	height:35px;
+}
+.intro p span{
+	font-size:95%
+}
+.date{
+	color:#a6a6a6;
+	font-size:80%
+}
+/*.order-detail*/
+.orderDetail .date{
+	float:right;line-height:21px;
+}
+.orderDetail .title{
+	padding-left:10px
+}
+.orderDetail .title h4{
+	color:#3191fd;
+}
+.orderDetail .title .detailImg{
+	width: 64px; 
+	height: 64px
+}
+.detail{
+	color:#4a4a4a;
+	font-family: Microsoft YaHei,SimHei;
+	background-color: #e5e5e5;
+	min-height: 600px;
+	height: 100%;
+	padding:13px;
+	margin-top: 10px
+}
+
+.detail span{
+	color: #3191fd;
+}
 /*classify tag*/
 .classify{
 	color:#4a4a4a;
@@ -33,20 +106,6 @@
 .classify.active{
 	color: #3191fd;
 	background-color: #fff;
-}
-
-/*order-detail*/
-.detail{
-	color:#4a4a4a;
-	font-family: Microsoft YaHei,SimHei;
-	background-color: #e5e5e5;
-	min-height: 500px;
-	padding:13px;
-	margin-top: 10px
-}
-
-.detail span{
-	color: #3191fd;
 }
 
 /*input*/
@@ -70,4 +129,40 @@
 	font-size: 18px;
 	background-color: #e5e5e5;
 	border-radius:9px;
+}
+
+/*个人信息*/
+.item-thumbnail-right img{
+	margin-right:20px 
+}
+
+.item-thumbnail-right .label{
+	width:50px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/*changePassword*/
+.changePassword{
+	background-color: #e5e5e5;
+}
+.changePassword .list{
+	margin-top: 10px;
+	margin-bottom: 30px;
+}
+.changePassword .item.item-input{
+	padding: 5px 0px;
+}
+.changePassword .item.item-input input{
+	background-color: #fff;
+	width: 84%;
+	margin: 0 8%;
+	line-height:45px;
+}
+.changePassword .button.button-block{
+	width:84%;
+	margin: 0 8%;
+	border-radius: 9px;
+	background-color: #3191fd;
 }

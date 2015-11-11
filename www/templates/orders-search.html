@@ -1,4 +1,4 @@
-<ion-list><ion-item ng-repeat="order in allOrders" type="item-text-wrap" href="#/app/orders/{{order.id}}" class="item-remove-animate item-icon-right orderList orderAll"><img ng-src="img/unfinish.png" class="status"/><img ng-src="img/orderImg.jpg" class="orderImg"/><div class="intro"><h3> <span ng-if="order.orderStatusId!=='F'" class="unfinish"> 
+<ion-list><ion-item ng-repeat="order in searchOrders" type="item-text-wrap" href="#/app/orders/{{order.id}}" class="item-remove-animate item-icon-right orderList orderAll"><img ng-src="img/unfinish.png" class="status"/><img ng-src="img/orderImg.jpg" class="orderImg"/><div class="intro"><h3> <span ng-if="order.orderStatusId!=='F'" class="unfinish"> 
 [未完成]</span>{{order.address}} {{order.parterNo}}</h3><p><span> 
 {{_.round(order.count)}}件
 {{_.round(order.volume, 2)}}方

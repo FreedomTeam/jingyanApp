@@ -2,7 +2,7 @@
   "name": "jyLogistics",
   "app_id": "",
   "gulpStartupTasks": [
-    "sass",
+
     "watch"
   ],
   "watchPatterns": [
