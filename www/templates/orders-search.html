@@ -1,5 +1,5 @@
-<ion-list><ion-item ng-repeat="order in searchOrders" type="item-text-wrap" href="#/app/orders/{{order.id}}" class="item-remove-animate item-icon-right orderList orderAll"><img ng-src="img/unfinish.png" class="status"/><img ng-src="img/orderImg.jpg" class="orderImg"/><div class="intro"><h3> <span ng-if="order.orderStatusId!=='F'" class="unfinish"> 
-[未完成]</span>{{order.address}} {{order.parterNo}}</h3><p><span> 
+<ion-list><div ng-if="refreshStatus[&quot;Search&quot;]===&quot;done&quot; &amp;&amp; searchOrders.length==0" class="empty"> <img ng-src="img/empty.png"/><p>没有找到订单</p></div><ion-item ng-repeat="order in searchOrders" type="item-text-wrap" href="#/app/orders/{{order.id}}" class="item-remove-animate item-icon-right orderList orderAll"><div ng-class="{'unfinish':order.orderStatusId!=='F'}" class="statu"> </div><img ng-src="img/orderImg.jpg" class="orderImg"/><div class="intro"><h3 ng-class="{'unfinish':order.orderStatusId!=='F'}">  
+{{order.address}} {{order.parterNo}}</h3><p><span> 
 {{_.round(order.count)}}件
 {{_.round(order.volume, 2)}}方
-{{_.round(order.weight,2)}}kg</span><br/><span>{{order.warehouseReceptNo}} {{order.parterNo}} </span></p><span class="date">{{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}</span></div><i class="icon ion-chevron-right icon-accessory"></i></ion-item></ion-list>
+{{_.round(order.weight,2)}}kg</span><br/><span>{{order.warehouseReceptNo}}</span></p><span class="date">{{order.orderDt|date:'yyyy-MM-dd'}}</span></div><i class="icon ion-chevron-right icon-accessory"></i></ion-item></ion-list>

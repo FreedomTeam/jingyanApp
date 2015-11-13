@@ -1,11 +1,11 @@
 ion-modal-view
   ion-header-bar
     .title 登入
-    .buttons
+    //.buttons
       button.button.button-small.button-clear.button-positive(ng-click='signUp()') Sign Up
   ion-content
     form(role='form' name="userForm" ng-submit="ok(userForm)" novalidate)
-      div.list.list-inset
+      div.list.list-inset.login
         .form-group.item.item-input(ng-class="{'has-error':userForm.name.$invalid && !userForm.name.$pristine}")
           input.form-control(placeholder='账户', name='name', autofocus='' ng-model='formData.name', required type='text' ng-pattern='/^\\w{3,12}$/' ng-change='clearLoginError()')
           span.energized(ng-show="userForm.name.$invalid && !userForm.name.$pristine") 3-12位字符

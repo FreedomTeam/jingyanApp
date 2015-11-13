@@ -15,6 +15,7 @@ angular.module('starter', [])
   }
 
   var bindStructs = {};
+  $scope.refreshStatus = {};
   $scope.hasMore = {};
   $scope.pages = [{
     id: 'All',
@@ -79,11 +80,13 @@ angular.module('starter', [])
   $scope.doRefresh = function() {
     $scope.hasMore[$scope.curPageId] = false;
     bindStructs[$scope.curPageId].refresh().then(function(defer){
+      $scope.refreshStatus[$scope.curPageId] = 'done';
       console.debug($scope.allOrders)
       console.debug('get data success')
       $scope.$broadcast('scroll.refreshComplete');
       $scope.hasMore[$scope.curPageId] = bindStructs[$scope.curPageId].moreData.length;
     }, function(defer){
+      $scope.refreshStatus[$scope.curPageId] = 'done';
       console.debug('get data fail')
       $scope.$broadcast('scroll.refreshComplete');
       $scope.hasMore[$scope.curPageId] = bindStructs[$scope.curPageId].moreData.length;

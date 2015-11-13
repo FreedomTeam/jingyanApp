@@ -2,11 +2,17 @@
   "name": "jyLogistics",
   "app_id": "",
   "gulpStartupTasks": [
-
     "watch"
   ],
   "watchPatterns": [
     "www/**/*",
     "!www/lib/**/*"
+  ],
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "14"
+    }
   ]
 }

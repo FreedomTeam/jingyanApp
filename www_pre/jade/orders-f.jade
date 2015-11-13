@@ -1,17 +1,19 @@
 ion-list
+  .empty(ng-if='refreshStatus["F"]==="done" && fOrders.length==0') 
+    img(ng-src='img/empty.png')
+    p 没有已完成订单
   ion-item.item-remove-animate.item-icon-right.orderList.orderF(ng-repeat='order in fOrders', type='item-text-wrap', href='#/app/orders/{{order.id}}')
-    img.status(ng-src='img/unfinish.png')
+    .statu
     img.orderImg(ng-src='img/orderImg.jpg')
     .intro
       h3
-        span.finish(ng-if="order.orderStatusId!=='F'")
-          | {{order.address}} {{order.parterNo}}
+        | {{order.address}} {{order.parterNo}}
       p
         span 
           | {{_.round(order.count)}}件
           | {{_.round(order.volume, 2)}}方
           | {{_.round(order.weight,2)}}kg
         br
-        span {{order.warehouseReceptNo}} {{order.parterNo}} 
-      span {{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}
+        span {{order.warehouseReceptNo}}
+      span {{order.orderDt|date:'yyyy-MM-dd'}}
     i.icon.ion-chevron-right.icon-accessory

@@ -8,10 +8,8 @@ ion-view(view-title='订单详情')
     button.button.button-clear.send(ng-click="") 发送
   ion-content.orderDetail
     div.title
-      h4
-        span.unfinish [未完成] 
-        {{order.id}}
-        span.date {{order.updatedAt|date:'yyyy-MM-dd hh:mm'}}
+      h4(ng-class="{'unfinish':order.orderStatusId!=='F'}")  
+        {{order.address}} {{order.parterNo}}
       img.detailImg(ng-src='img/add-photo.png')
     div.detail
       p 驳货地址：
@@ -26,3 +24,5 @@ ion-view(view-title='订单详情')
         span {{_.round(order.volume, 2)}}
       p 吨位：
         span {{_.round(order.weight, 2)}}
+      p 订单日期：
+        span {{order.orderDt|date:'yyyy-MM-dd'}}

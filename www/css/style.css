@@ -27,19 +27,22 @@
 
 /*Order*/
 .orderList{
-	min-height:72px;
+	min-height:76px;
 }
 .orderList a.item-content{
   padding: 12px 49px 12px 8px;
 }
-img.status{
-	max-width:8px;
-	max-height:72px;
-	width: 100%;
-	height: 100%;
+.statu{
+	display: inline-block;
+	width:1%;
+	height:76px;
+	background-color:#e5e5e5;
+}
+.statu.unfinish{
+	background-color:#ff4343;
 }
 img.orderImg{
-  max-height:72px;
+  max-height:76px;
   margin:0px 6px
 }
 .intro{
@@ -49,11 +52,11 @@ img.orderImg{
 .intro h3{
 	color:#3191fd
 }
-span.unfinish{
+.intro .unfinish,.orderDetail .title .unfinish{
 	color:#ff4343
 }
 .intro p{
-	height:35px;
+	height:36px;
 }
 .intro p span{
 	font-size:95%
@@ -63,9 +66,9 @@ span.unfinish{
 	font-size:80%
 }
 /*.order-detail*/
-.orderDetail .date{
+/*.orderDetail .date{
 	float:right;line-height:21px;
-}
+}*/
 .orderDetail .title{
 	padding-left:10px
 }
@@ -165,4 +168,29 @@ span.unfinish{
 	margin: 0 8%;
 	border-radius: 9px;
 	background-color: #3191fd;
+}
+
+/*提示信息*/
+.energized{
+	padding-left: 10%;
+	color: red;
+}
+.login .energized{
+	position: absolute;
+	right: 15px;
+	padding-top: 12px;
+}
+
+/*空订单*/
+.empty{
+	width:30%;
+	text-align: center;
+	margin: auto;
+	padding-top: 40%;
+	font-family: Microsoft YaHei,SimHei;
+	font-size: 16px;
+	color: #cacaca;
+}
+.empty img{
+	width: 100%;;
 }
