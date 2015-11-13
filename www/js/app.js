@@ -14,7 +14,8 @@ angular.module('starter', [
   'LocalStorageModule',
   'oc.lazyLoad',
   'starter.services',
-  'controllers.SideMenuCtrl'
+  'controllers.SideMenuCtrl',
+  'ngCordova'
   ])
 
 .run(function($ionicPlatform) {
@@ -189,6 +190,25 @@ angular.module('starter', [
         }   
       },
       resolve: {
+        loadExternal:function($ocLazyLoad) {
+          return $ocLazyLoad.load(
+          {
+            name:'ngCordova',
+            files:[
+              'lib/async/dist/async.min.js'
+            ]
+          })
+        },
+        loadServices:function($ocLazyLoad) {
+          return $ocLazyLoad.load(
+          {
+            name:'starter.services',
+            files:[
+              'js/services.Api.js',
+              'js/services.Acl.js'
+            ]
+          })
+        },
         loadMyFiles:function($ocLazyLoad) {
           return $ocLazyLoad.load({
             name:'starter.controllers',

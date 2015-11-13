@@ -8,6 +8,13 @@ angular.module('services.Api', [])
     list: 'asc'
   }
   return {
+    tranUrls: function(urls){
+      var rst = [];
+      _.forEach(urls, function(url){
+        rst.push(baseUrl + url);
+      });
+      return rst;
+    },
     tranUrl: function(url){
       return baseUrl + url;
     },

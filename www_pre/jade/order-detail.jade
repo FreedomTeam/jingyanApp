@@ -5,12 +5,12 @@
   The Friends service returns an array of friend data
 ion-view(view-title='订单详情')
   ion-nav-buttons(side="right")
-    button.button.button-clear.send(ng-click="") 发送
   ion-content.orderDetail
     div.title
       h4(ng-class="{'unfinish':order.orderStatusId!=='F'}")  
         {{order.address}} {{order.parterNo}}
-      img.detailImg(ng-src='img/add-photo.png')
+      img.detailImg(ng-repeat="image in order.images" ng-src="{{tranUrl(image)}}" ng-click="viewImages($index)")
+      img.detailImg(ng-src='img/add-photo.png' ng-click="uploadImages()")
     div.detail
       p 驳货地址：
         span {{order.address}}

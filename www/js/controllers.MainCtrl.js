@@ -23,7 +23,8 @@ angular.module('starter', [])
     title: '全部订单',
     field: 'allOrders',
     options: {
-      context: 'transported'
+      context: 'transported',
+      order: 'updatedAt'
     }
   },{
     id: 'D',
@@ -32,7 +33,8 @@ angular.module('starter', [])
     field: 'dOrders',
     options: {
       context: 'transported',
-      orderStatusId: 'D'
+      orderStatusId: 'D',
+      order: 'updatedAt'
     }
   },{
     id: 'F',
@@ -41,7 +43,8 @@ angular.module('starter', [])
     field: 'fOrders',
     options: {
       context: 'transported',
-      orderStatusId: 'F'
+      orderStatusId: 'F',
+      order: 'updatedAt'
     }
   }]
   $scope.pagesMap = _.indexBy($scope.pages, 'id');
@@ -64,7 +67,7 @@ angular.module('starter', [])
       $scope.changePage($scope.pagesMap['All']);
     } else {
       $scope.curPageId = 'Search';
-      bindStructs['Search'] = Api.bindList(Orders, $scope, 'searchOrders', 'news', {context: 'transported', warehouseLike: $scope.formData.warehouseLike});
+      bindStructs['Search'] = Api.bindList(Orders, $scope, 'searchOrders', 'news', {context: 'transported', order: 'updatedAt', warehouseLike: $scope.formData.warehouseLike});
       $scope.doRefresh();
     }
   }

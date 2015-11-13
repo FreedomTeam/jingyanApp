@@ -159,6 +159,19 @@ angular.module('services.Modal', [])
         }
       })
     },
+    info: function(params){
+      var scope = $rootScope.$new();
+      scope.data = {};
+      _.assign(scope, params);
+      var myPopup = $ionicPopup.alert({
+        template: '{{info}}',
+        title: params.title,
+        scope: scope,
+        okText: '确定'
+      });
+      myPopup.then(function(){
+      })
+    },
     alert: function(params, okCb, cancelCb){
       var scope = $rootScope.$new();
       scope.data = {};
@@ -194,10 +207,11 @@ angular.module('services.Modal', [])
         }
       })
     },
-    image: function(imageUrl){
+    images: function(images, index){
       var scope = $rootScope.$new();
-      scope.viewedImage = imageUrl;
-      $ionicModal.fromTemplateUrl('templates/modal-image.html', {scope: scope}).then(function(modal) {
+      scope.images = images;
+      scope.index = index;
+      $ionicModal.fromTemplateUrl('templates/modal-images.html', {scope: scope}).then(function(modal) {
         scope.modal = modal;
         modal.show();
 

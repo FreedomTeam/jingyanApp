@@ -194,3 +194,10 @@ img.orderImg{
 .empty img{
 	width: 100%;;
 }
+
+
+
+/*对话框*/
+.modal-image{
+	width: 100vw;
+}
