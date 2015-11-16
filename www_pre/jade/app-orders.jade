@@ -2,14 +2,15 @@ ion-view(view-title='订单')
   ion-nav-buttons(side="right")
     //- button.button.button-clear.add(ng-click='addOrders()') 
     //-   img(src="img/button-add1.png")
-  ion-content
+  ion-header-bar.bar-search.bar-subheader
     #search-bar
-    .item.item-input-inset
-      label#search-input.item-input-wrapper
-        i.icon.ion-search.placeholder-icon
-        input(type='text', placeholder='搜索进仓编号', ng-model='formData.warehouseLike', ng-keypress='search($event)')
-    div(style="width:100%")
+      .item.item-input-inset
+        label#search-input.item-input-wrapper
+          i.icon.ion-search.placeholder-icon
+          input(type='text', placeholder='搜索进仓编号', ng-model='formData.warehouseLike', ng-keypress='search($event)')
+    div
       li.classify(ng-click="changePage(page)" ng-repeat="page in pages" ng-class="{active:page.id===curPageId}") {{page.title}}
+  ion-content
     ion-refresher(pulling-text=' ', on-refresh='doRefresh()')
     ng-include(src="curPageId==='Search'?'templates/orders-search.html':pagesMap[curPageId].url")
     ion-infinite-scroll(on-infinite='loadMore()', ng-if='hasMore[curPageId]', distance='10%')

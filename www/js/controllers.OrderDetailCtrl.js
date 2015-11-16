@@ -8,12 +8,12 @@ angular.module('starter.controllers', [])
   $scope.tranUrl = Api.tranUrl;
   
   var refreshOrder = function(){
-    $ionicLoading.show({
-      template: '数据刷新中...'
-    })
+    // $ionicLoading.show({
+    //   template: '数据刷新中...'
+    // })
     Order.get({context: 'transported'}).then(function(order){
       $scope.order = order;
-      $ionicLoading.hide();
+      // $ionicLoading.hide();
     })
   }
   refreshOrder();
